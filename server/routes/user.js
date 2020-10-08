@@ -6,7 +6,7 @@ const User = require('../models/user');
 const { validateToken, validateAdminRole } = require('../middlewares/authentication');
 const app = express();
 
-app.get('/user/', validateToken, (req, res) => {
+app.get('/user', validateToken, (req, res) => {
     let from = req.query.from || 0;
     from = Number(from);
 
