@@ -29,7 +29,7 @@ let validateAdminRole = (req, res, next) => {
         });
     }
 
-}
+};
 module.exports = {
     validateToken,
     validateAdminRole
