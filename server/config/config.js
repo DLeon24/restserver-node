@@ -10,4 +10,3 @@ process.env.SEED = process.env.SEED || 'este-es-el-sed-desarrollo';
 process.env.CLIENT_ID =
   process.env.CLIENT_ID ||
   '651498225112-h9krfp4igsfmah9sju8mbf60llbrccbu.apps.googleusercontent.com';
-
