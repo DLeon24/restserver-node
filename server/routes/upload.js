@@ -52,7 +52,7 @@ app.put('/upload/:type/:id', function (req, res) {
   let newFileName = `${id}-${new Date().getMilliseconds()}.${fileExtension}`;
 
   // Use the mv() method to place the file somewhere on your server
-  file.mv(`uploads/${type}/${newFileName}`, (err) => {
+  file.mv(`../uploads/${type}/${newFileName}`, (err) => {
     if (err) {
       return res.status(500).json({
         ok: false,
