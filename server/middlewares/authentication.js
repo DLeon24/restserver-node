@@ -1,36 +1,54 @@
 const jwt = require('jsonwebtoken');
 
 let validateToken = (req, res, next) => {
-    let token = req.get('Authorization');
-    jwt.verify(token, process.env.SEED, (err, decoded) => {
-        if (err) {
-            return res.status(401).json({
-                ok: false,
-                err: {
-                    message: 'invalid token.'
-                }
-            });
-        }
-        req.user = decoded.user;
-        next();
-    });
+  let token = req.get('Authorization');
+  jwt.verify(token, process.env.SEED, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({
+        ok: false,
+        err: {
+          message: 'invalid token.',
+        },
+      });
+    }
+    req.user = decoded.user;
+    next();
+  });
 };
 
 let validateAdminRole = (req, res, next) => {
-    let user = req.user;
-    if (user.role === 'ADMIN_ROLE') {
-        next();
-    } else {
-        return res.json({
-            ok: false,
-            err: {
-                message: 'user is not Admin'
-            }
-        });
-    }
-
+  let user = req.user;
+  if (user.role === 'ADMIN_ROLE') {
+    next();
+  } else {
+    return res.json({
+      ok: false,
+      err: {
+        message: 'user is not Admin',
+      },
+    });
+  }
 };
+
+let validateTokenUrl = (req, res, next) => {
+  let token = req.query.token;
+  jwt.verify(token, process.env.SEED, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({
+        ok: false,
+        err: {
+          message: 'invalid token.',
+        },
+      });
+    }
+    req.user = decoded.user;
+    next();
+  });
+};
+
 module.exports = {
-    validateToken,
-    validateAdminRole
-}
+  validateToken,
+  validateAdminRole,
+  validateTokenUrl,
+};
+
