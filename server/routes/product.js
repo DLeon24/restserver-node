@@ -128,7 +128,7 @@ app.put('/product/:id', validateToken, (req, res) => {
         });
       }
       if (!productDB) {
-        return res.statuws(400).json({
+        return res.status(400).json({
           ok: false,
           err,
         });

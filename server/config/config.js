@@ -6,7 +6,7 @@ let databaseConnection =
     : process.env.MONGO_URI;
 process.env.URL_DB = databaseConnection;
 process.env.EXPIRATION_TOKEN = '48h';
-process.env.SEED = process.env.SEED || 'este-es-el-sed-desarrollo';
+process.env.SEED = process.env.SEED || 'this-is-the-dev-seed';
 process.env.CLIENT_ID =
   process.env.CLIENT_ID ||
   '651498225112-h9krfp4igsfmah9sju8mbf60llbrccbu.apps.googleusercontent.com';

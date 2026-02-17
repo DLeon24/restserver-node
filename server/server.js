@@ -12,10 +12,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// habilitar la carpeta public
+// enable public folder
 app.use(express.static(path.resolve(__dirname, '../public')));
 
-// config global de rutas
+// global routes config
 app.use(require('./routes/index'));
 
 

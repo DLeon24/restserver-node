@@ -1,6 +1,6 @@
 const express = require('express');
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const { OAuth2Client } = require('google-auth-library');
@@ -96,7 +96,7 @@ app.post('/google', async(req, res) => {
                 });
             }
         } else {
-            // Si el usuario no existe en la bd
+            // If user does not exist in the database
             let user = new User();
             user.name = googleUser.name;
             user.email = googleUser.email;
